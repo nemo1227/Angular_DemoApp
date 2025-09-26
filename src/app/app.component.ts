@@ -5,8 +5,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-root',
   imports: [RouterModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  encapsulation: ViewEncapsulation.None
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'DemoApp';
