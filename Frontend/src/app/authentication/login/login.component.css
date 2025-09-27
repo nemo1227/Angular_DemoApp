@@ -7,12 +7,15 @@
   background-color: #0d1117; /* dark bg like GitHub */
   font-family: Arial, sans-serif;
   color: #c9d1d9;
+  padding: 20px; /* prevent cutoff on very small screens */
+  box-sizing: border-box;
 }
 
 /* Box styling */
 .login-box {
   text-align: center;
   width: 350px;
+  max-width: 100%; /* shrink to fit small devices */
 }
 
 /* GitHub logo */
@@ -26,6 +29,7 @@
 h2 {
   margin-bottom: 20px;
   font-weight: normal;
+  font-size: 22px;
 }
 
 /* Form labels */
@@ -46,6 +50,7 @@ input {
   border-radius: 6px;
   color: white;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 /* Password + Forgot link */
@@ -62,7 +67,7 @@ input {
   text-decoration: none;
 }
 
-/* Sign in button */
+/* Sign in & Register buttons */
 .btn-signin {
   width: 100%;
   background-color: #238636;
@@ -116,7 +121,7 @@ input {
   background-color: #30363d;
 }
 
-/* New account */
+/* New account link (login & register forms) */
 .new-account {
   margin-top: 20px;
   font-size: 13px;
@@ -124,6 +129,17 @@ input {
 .new-account a {
   color: #58a6ff;
   text-decoration: none;
+}
+/* Password hint styling */
+.password-hint {
+  font-size: 12px;
+  color: #8b949e;
+  margin: -10px 0 15px;
+  text-align: left;
+  line-height: 1.4;
+}
+.password-hint b {
+  color: #c9d1d9;
 }
 
 /* Passkey link */
@@ -134,4 +150,87 @@ input {
 .passkey a {
   color: #58a6ff;
   text-decoration: none;
+}
+
+/* 🔹 Register form specific tweaks */
+.register-form label {
+  margin-top: 10px;
+}
+.register-form .btn-signin {
+  background-color: #1f6feb; /* blue for register */
+}
+.register-form .btn-signin:hover {
+  background-color: #388bfd;
+}
+
+/* ========================= */
+/* 🔹 Responsive Adjustments */
+/* ========================= */
+
+/* Small tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .login-box {
+    width: 300px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  input,
+  .btn-signin,
+  .btn-google {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* Large mobiles (max-width: 576px) */
+@media (max-width: 576px) {
+  .login-box {
+    width: 90%; /* take more screen width */
+  }
+
+  .logo {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  .forgot {
+    font-size: 11px;
+  }
+}
+
+/* Small mobiles (max-width: 400px) */
+@media (max-width: 400px) {
+  .login-box {
+    width: 100%;
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .btn-signin,
+  .btn-google {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .new-account {
+    font-size: 12px;
+  }
 }
