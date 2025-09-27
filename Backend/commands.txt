@@ -1,0 +1,9 @@
+npm init -y    #creates a package.jsonn file with defaults
+npm install express cors dotenv   
+npm install --save-dev -nodemon
+
+# 
+ 1. express -> Web Framework
+ 2. cors -> Handle cross-origin requests 
+ 3. dotenv -> Load environment variables from .env
+ 4. nodemon -> Auto-restarts server on file changes (dev only)
