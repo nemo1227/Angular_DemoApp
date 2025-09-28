@@ -14,11 +14,15 @@ app.use(cors({
 app.use(bodyParser.json());
 
 app.use("/api/users", userRoutes);
-app.get("/", (req, res) => {
-  res.send("Express server is running ");
-});
 
 const PORT = process.env.PORT || 8080;
+/*
+1. sequelize.sync() looks at all defined models (eg: User.js).
+2. It creates the corresponding table in the connected database if it doesn’t exist.
+3. Example:
+   # Model: User
+   # Sequelize generates a table Users (pluralized by default)
+*/ 
 sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
