@@ -1,0 +1,70 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="logo">
+      <i class="fa-brands fa-github"></i>
+    </div>
+
+    <!-- Login form -->
+    <div *ngIf="showLogin">
+      <h2>Sign in</h2>
+
+      <form>
+        <!-- Username/Email -->
+        <label for="username">Username or email address</label>
+        <input type="text" id="username" [(ngModel)]="logUsername" name="logUsername"  placeholder="Enter username or email" required />
+
+        <!-- Password -->
+        <div class="password-section">
+          <label for="password">Password</label>
+          <a href="#" class="forgot">Forgot password?</a>
+        </div>
+        <input type="password" id="password" [(ngModel)]="logPassword" name="logPassword" placeholder="Enter password" required />
+
+        <!-- Sign in button -->
+        <button type="submit" class="btn-signin" (click)="onSignIn()">Sign in</button>
+
+        <div class="divider">or</div>
+
+        <!-- New account link -->
+        <p class="new-account">
+          New to DemoApp? 
+          <a href="#" (click)="toggleForm($event)">Create an account</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- Register form -->
+    <div *ngIf="!showLogin">
+      <h2>Create an Account</h2>
+
+      <form>
+        <!-- Email -->
+        <label for="reg-email">Email address</label>
+        <input type="email" id="reg-email" [(ngModel)]="regEmail" name="regEmail" placeholder="Enter your email" required/>
+
+        <!-- Username -->
+        <label for="reg-username">Username</label>
+        <input type="text" id="reg-username" [(ngModel)]="regUsername" name="regUsername" placeholder="Enter username" required />
+
+        <!-- Password -->
+        <label for="reg-password">Password</label>
+        <input type="password" id="reg-password" [(ngModel)]="regPassword" name="regPassword" placeholder="Enter password" required />
+        <p class="password-hint">
+          Password should be at least <b>15 characters</b> OR at least 
+          <b>8 characters</b> including a number and an uppercase letter.
+        </p>
+
+        <!-- Register button -->
+        <button type="submit" class="btn-signin" (click)="onRegister()">Register</button>
+
+        <div class="divider">or</div>
+
+        <!-- Back to login -->
+        <p class="new-account">
+          Already have an account? 
+          <a href="#" (click)="toggleForm($event)">Sign in</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
