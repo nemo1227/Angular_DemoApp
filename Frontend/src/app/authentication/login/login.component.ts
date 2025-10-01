@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   showLogin: boolean = true; // start with login form
-
+  errorMessage: string | null = null;
+  
   // LoginForm fields
   logUsername: string = '';
   logPassword: string = '';

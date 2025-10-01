@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { Op } = require("sequelize");
 const User = require("../models/User");
 
 exports.register = async (req, res) => {
@@ -26,9 +27,17 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
   try 
   {
-    const { username, password } = req.body;
+    const { identifier, password } = req.body;
 
-    const user = await User.findOne({ where: { username } });
+    // Find by username OR email
+    const user = await User.findOne({
+      where: {
+        [Op.or]: [
+          { username: identifier },
+          { email: identifier }
+        ]
+      }
+    });
     if (!user) return res.status(401).json({ error: "Invalid credentials" });
 
     const match = await bcrypt.compare(password, user.password);
