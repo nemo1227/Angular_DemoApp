@@ -2,9 +2,9 @@
   "name": "demo-app",
   "version": "0.0.0",
   "scripts": {
+    "build": "npx ng build SmartTaskCollaborationPlatform --configuration production",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build SmartTaskCollaborationPlatform --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
