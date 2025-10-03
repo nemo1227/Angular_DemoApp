@@ -13,8 +13,7 @@ export class LoginService {
     return this.http.post(`${this.apiUrl}/register`, { username, password, email });
   }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, { username, password });
+  login(identifier: string, password: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/login`, { identifier, password });
   }
-
 }

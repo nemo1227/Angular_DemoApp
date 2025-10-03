@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   showLogin: boolean = true; // start with login form
-
+  errorMessage: string | null = null;
+  
   // LoginForm fields
   logUsername: string = '';
   logPassword: string = '';
@@ -36,7 +37,18 @@ export class LoginComponent {
       },
       error: (error) => {
         console.error('Login error:', error);
-        alert("❌ Login failed. Please check your credentials.");
+        if (error.status === 401) 
+        {
+          this.errorMessage = "❌ Incorrect username or password.";
+        } 
+        else if (error.status === 500) 
+        {
+          this.errorMessage = "⚠️ Internal server error. Please try again later.";
+        } 
+        else 
+        {
+          this.errorMessage = "❓ Unexpected error occurred.";
+        }
       }
     });
   }
