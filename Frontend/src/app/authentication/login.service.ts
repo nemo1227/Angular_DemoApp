@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 
 export class LoginService {
-  private apiUrl = 'https://my-backend.onrender.com/api/users';
+  private apiUrl = '/api/users';
   constructor(private http: HttpClient) { }
   
   register(username: string, password: string, email:string): Observable<any> {
