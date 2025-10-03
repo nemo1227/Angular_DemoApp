@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "build": "npx ng build SmartTaskCollaborationPlatform --configuration production",
-    "ng": "ng",
     "start": "ng serve",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "watch": "npx ng build --watch --configuration development",
+    "test": "npx ng test"
   },
   "private": true,
   "dependencies": {
@@ -24,7 +23,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.0.6",
-    "@angular/cli": "^19.0.6",
+    "@angular/cli": "^19.2.17",
     "@angular/compiler-cli": "^19.0.0",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.4.0",
