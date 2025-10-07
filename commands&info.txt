@@ -1,3 +1,4 @@
+The Below commands need to be executed in 'Backend' directory
 npm init -y    #creates a package.jsonn file with defaults
 npm install express cors dotenv   
 npm install --save-dev -nodemon
@@ -23,3 +24,7 @@ How ORM Works:
    statements for CRUD (Create, Read, Update, Delete) operations, you perform these operations directly on your objects.
  3.Translation: The ORM framework translates your object-oriented operations into corresponding SQL queries that the database can understand 
    and execute. It then translates the results back into objects that your application can use.
+
+The Below commands need to be executed in 'Frontend' directory
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init  #creates a file called 'tailwind.config.js'
