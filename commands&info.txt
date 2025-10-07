@@ -1,0 +1,30 @@
+The Below commands need to be executed in 'Backend' directory
+npm init -y    #creates a package.jsonn file with defaults
+npm install express cors dotenv   
+npm install --save-dev -nodemon
+npm install sequelize
+npm install jsonwebtoken
+
+# 
+ 1. express -> Web Framework
+ 2. cors -> Handle cross-origin requests 
+ 3. dotenv -> Load environment variables from .env
+ 4. nodemon -> Auto-restarts server on file changes (dev only)
+ 5. sequelize -> ORM (Object-Relational Mapping)
+ 6. jsonwebtoken -> login tokens
+
+ORM, or Object-Relational Mapping, is a programming technique that provides a bridge between object-oriented programming 
+languages and relational databases.It allows developers to interact with a database using the objects and concepts of their 
+chosen programming language, rather than writing raw SQL queries.
+
+How ORM Works:
+ 1.Mapping: ORM frameworks establish a mapping between objects in your code (e.g., a User object) and tables in a relational database 
+   (e.g., a users table). Properties of the object (like name, email) are mapped to columns in the table.
+ 2.Abstraction: ORM provides an abstraction layer that hides the complexities of SQL and database interactions. Instead of writing SQL 
+   statements for CRUD (Create, Read, Update, Delete) operations, you perform these operations directly on your objects.
+ 3.Translation: The ORM framework translates your object-oriented operations into corresponding SQL queries that the database can understand 
+   and execute. It then translates the results back into objects that your application can use.
+
+The Below commands need to be executed in 'Frontend' directory
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init  #creates a file called 'tailwind.config.js'
