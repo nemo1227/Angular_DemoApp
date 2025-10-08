@@ -15,6 +15,18 @@ const User = sequelize.define("User", {
     type: DataTypes.STRING,
     allowNull: false
   }
+},
+{
+  indexes: [
+    {
+      unique: true,
+      fields: ["username"]
+    },
+    {
+      unique: true,
+      fields: ["email"]
+    }
+  ]
 });
 
 module.exports = User;
