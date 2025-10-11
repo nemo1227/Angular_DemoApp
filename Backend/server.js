@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 app.use("/api/users", userRoutes);
 // Catch-all -> serve Angular index.html
-app.get('*', (req, res) => {
+app.get('/*public', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 const PORT = process.env.PORT || 8080;
