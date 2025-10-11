@@ -43,3 +43,4 @@ Thumbs.db
 
 # SQLite database files
 *.db
+*.env

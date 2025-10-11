@@ -1,25 +1,42 @@
+The Below commands need to be executed in 'Backend' directory
 npm init -y    #creates a package.jsonn file with defaults
-npm install express cors dotenv   
+npm install express
+npm install cors  
+npm install dotenv  
 npm install --save-dev -nodemon
 npm install sequelize
+npm install sequelize-cli   # Command-line interface tool for Sequelize
 npm install jsonwebtoken
 
-# 
- 1. express -> Web Framework
- 2. cors -> Handle cross-origin requests 
- 3. dotenv -> Load environment variables from .env
- 4. nodemon -> Auto-restarts server on file changes (dev only)
- 5. sequelize -> ORM (Object-Relational Mapping)
- 6. jsonwebtoken -> login tokens
+# Sequelize-CLI
+  1.sequelize-cli is a command-line interface tool for Sequelize
+  2.What is it used for?
+    The CLI helps you manage your database workflow through the command line. Its main uses include:
+    -> Database Management:
+      1. Initialize Sequelize in your project
+      2. Create and manage database configurations
+      3. Run database migrations (schema changes)
+      4. Seed your database with test or initial data.
 
-ORM, or Object-Relational Mapping, is a programming technique that provides a bridge between object-oriented programming 
-languages and relational databases.It allows developers to interact with a database using the objects and concepts of their 
-chosen programming language, rather than writing raw SQL queries.
+    -> Code Generation:
+      1. Generate model files (representing database tables)
+      2. Generate migration files (for creating/modifying tables)
+      3. Generate seeder files (for inserting data)
 
-How ORM Works:
- 1.Mapping: ORM frameworks establish a mapping between objects in your code (e.g., a User object) and tables in a relational database 
-   (e.g., a users table). Properties of the object (like name, email) are mapped to columns in the table.
- 2.Abstraction: ORM provides an abstraction layer that hides the complexities of SQL and database interactions. Instead of writing SQL 
-   statements for CRUD (Create, Read, Update, Delete) operations, you perform these operations directly on your objects.
- 3.Translation: The ORM framework translates your object-oriented operations into corresponding SQL queries that the database can understand 
-   and execute. It then translates the results back into objects that your application can use.
+  3.Why use it?
+    I. It's particularly useful because it helps you maintain database version control through migrations, making it easier to collaborate with teams and deploy database changes consistently across different environments (development, staging, production).
+    II.  Instead of manually writing SQL or creating tables, you define changes in JavaScript/TypeScript files that can be tracked in version control.
+  
+  4.Common Commands:
+    1. npx sequelize-cli init                                                                   # Initialize Sequelize in your project
+    2. npx sequelize-cli model:generate --name User --attributes firstName:string,email:string  # Create a new model and migration
+    3. npx sequelize-cli db:migrate                                                             # Run all pending migrations
+    4. npx sequelize-cli db:migrate:undo                                                        # Undo the last migration
+    5. npx sequelize-cli seed:generate --name demo-users                                        # Create a seeder file
+    6. npx sequelize-cli db:seed:all                                                            # Run all seeders
+
+
+
+The Below commands need to be executed in 'Frontend' directory
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init  #creates a file called 'tailwind.config.js'

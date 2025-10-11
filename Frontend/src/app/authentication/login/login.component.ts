@@ -37,14 +37,17 @@ export class LoginComponent {
       },
       error: (error) => {
         console.error('Login error:', error);
-        if (error.status === 401) {
+        if (error.status === 401) 
+        {
           this.errorMessage = "❌ Incorrect username or password.";
         } 
-        else if (error.status === 500) {
+        else if (error.status === 500) 
+        {
           this.errorMessage = "⚠️ Internal server error. Please try again later.";
         } 
-        else {
-          this.errorMessage = "❓ Server Not running.";
+        else 
+        {
+          this.errorMessage = "❓ Unexpected error occurred.";
         }
       }
     });

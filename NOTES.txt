@@ -1,0 +1,40 @@
+# 
+ 1. express -> Web Framework
+ 2. cors -> Handle cross-origin requests 
+ 3. dotenv -> Load environment variables from .env
+ 4. nodemon -> Auto-restarts server on file changes (dev only)
+ 5. sequelize -> ORM (Object-Relational Mapping)
+ 6. jsonwebtoken -> login tokens
+
+ORM, or Object-Relational Mapping, is a programming technique that provides a bridge between object-oriented programming 
+languages and relational databases.It allows developers to interact with a database using the objects and concepts of their 
+chosen programming language, rather than writing raw SQL queries.
+
+How ORM Works:
+ 1.Mapping: ORM frameworks establish a mapping between objects in your code (e.g., a User object) and tables in a relational database 
+   (e.g., a users table). Properties of the object (like name, email) are mapped to columns in the table.
+ 2.Abstraction: ORM provides an abstraction layer that hides the complexities of SQL and database interactions. Instead of writing SQL 
+   statements for CRUD (Create, Read, Update, Delete) operations, you perform these operations directly on your objects.
+ 3.Translation: The ORM framework translates your object-oriented operations into corresponding SQL queries that the database can understand 
+   and execute. It then translates the results back into objects that your application can use.
+
+
+What is DevOps & Why DevOps?
+ 1. DevOps is all about getting teams to build and deploy code faster without sacrificing reliability.
+ 2. Before DevOps, development and operations teams worked separately with minimal communication. Developers would build software in their own environment, then hand it off to operations to deploy it to users.
+ 3. But operations couldn't immediately deploy the code. They needed to carefully test it first, make sure it wouldn't break existing systems, and prepare the infrastructure - all without knowing how the code was written.
+ 4. This created delays, misunderstandings, and frustration on both sides: developers wanted to ship features quickly, while operations wanted to make sure the code is stable before it's deployed.
+
+DevOps is a set of practices that combines development (writing code) and operations (deploying and maintaining code) to shorten development cycles and deliver reliable software.
+At the heart of DevOps is CI/CD - Continuous Integration and Continuous Delivery/Deployment.
+
+What does DevOps Engineeers do?
+ 1. Build automated pipelines (e.g. using AWS CodePipeline, Jenkins, GitHub Actions) that test, package, and deploy software, so releases become faster and more reliable.
+ 2. Containerize applications using tools like Docker and Kubernetes, which helps applications scale.
+ 3. Turn cloud infrastructure into code (e.g. AWS CloudFormation, Terraform), so teams can create and manage resources more efficiently than manually configuring them.
+
+CI (Continuous Integration):
+ CI (continuous integration) means the build process starts automatically - whenever developers update the code in GitHub (i.e. a new recipe is added), CodeBuild will automatically build the updated code.
+
+CD (Continuous Deployment/Delivery):
+ CD (continuous delivery) means deployment happens automatically whenever a new build is successful.
