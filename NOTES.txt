@@ -6,17 +6,44 @@
  5. sequelize -> ORM (Object-Relational Mapping)
  6. jsonwebtoken -> login tokens
 
-ORM, or Object-Relational Mapping, is a programming technique that provides a bridge between object-oriented programming 
-languages and relational databases.It allows developers to interact with a database using the objects and concepts of their 
-chosen programming language, rather than writing raw SQL queries.
+# ESM
+  ESM stands for ECMAScript Modules, which is the official modern JavaScript module system introduced in ES6 (2015).
+  It uses the import and export syntax: (EXAMPLE)
+  // math.js
+    export function add(a, b) {
+      return a + b;
+    }
+  // main.js
+    import { add } from './math.js';
+    console.log(add(2, 3)); // 5
 
-How ORM Works:
- 1.Mapping: ORM frameworks establish a mapping between objects in your code (e.g., a User object) and tables in a relational database 
-   (e.g., a users table). Properties of the object (like name, email) are mapped to columns in the table.
- 2.Abstraction: ORM provides an abstraction layer that hides the complexities of SQL and database interactions. Instead of writing SQL 
-   statements for CRUD (Create, Read, Update, Delete) operations, you perform these operations directly on your objects.
- 3.Translation: The ORM framework translates your object-oriented operations into corresponding SQL queries that the database can understand 
-   and execute. It then translates the results back into objects that your application can use.
+  Node.js originally did not support ESM. It introduced its own module system called CommonJS — which uses require and module.exports: (EXAMPLE)
+  // math.js
+    function add(a, b) {
+      return a + b;
+    }
+    module.exports = { add };
+  // main.js
+    const { add } = require('./math');
+    console.log(add(2, 3)); // 5
+
+  Q. How Node decides which one you’re using?
+  ANS: Node.js determines the module system based on your package.json.
+      1. If your package.json has - {"type": "module"}, Node treats .js files as ESM
+      2. If it doesn’t have that line (or is set to "commonjs"), Node treats .js files as CommonJS.
+      
+# ORM
+  ORM, or Object-Relational Mapping, is a programming technique that provides a bridge between object-oriented programming 
+  languages and relational databases.It allows developers to interact with a database using the objects and concepts of their 
+  chosen programming language, rather than writing raw SQL queries.
+
+  How ORM Works:
+    1.Mapping: ORM frameworks establish a mapping between objects in your code (e.g., a User object) and tables in a relational database 
+      (e.g., a users table). Properties of the object (like name, email) are mapped to columns in the table.
+    2.Abstraction: ORM provides an abstraction layer that hides the complexities of SQL and database interactions. Instead of writing SQL 
+      statements for CRUD (Create, Read, Update, Delete) operations, you perform these operations directly on your objects.
+    3.Translation: The ORM framework translates your object-oriented operations into corresponding SQL queries that the database can understand 
+      and execute. It then translates the results back into objects that your application can use.
 
 
 What is DevOps & Why DevOps?

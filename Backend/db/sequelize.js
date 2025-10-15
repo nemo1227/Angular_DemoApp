@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+import { Sequelize } from "sequelize";
 
 let sequelize;
 
@@ -25,5 +25,4 @@ else
     logging: false
   });
 }
-
-module.exports = sequelize;
+export default sequelize;

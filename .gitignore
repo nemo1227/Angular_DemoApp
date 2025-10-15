@@ -41,6 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# SQLite database files
+# SQLite database files and environment files
 *.db
 *.env
