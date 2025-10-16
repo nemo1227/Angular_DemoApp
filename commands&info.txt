@@ -7,6 +7,7 @@ npm install --save-dev -nodemon
 npm install sequelize
 npm install sequelize-cli   # Command-line interface tool for Sequelize
 npm install jsonwebtoken
+npm install redis
 
 # Sequelize-CLI
   1.sequelize-cli is a command-line interface tool for Sequelize
