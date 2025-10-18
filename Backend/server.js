@@ -8,18 +8,13 @@ import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 
 dotenv.config();
-const { json } = bodyParser;
 const app = express();
-app.use(cors({
-  origin: "http://localhost:4200",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+app.use(cors());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 // Serve Angular static files
 app.use(express.static(join(__dirname, "public")));
-app.use(json());
+app.use(bodyParser.json());
 app.use("/api/users", userRoutes);
 // Catch-all -> serve Angular index.html
 app.get('/*public', (req, res) => {
