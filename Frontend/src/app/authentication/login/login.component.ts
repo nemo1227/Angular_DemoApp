@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   showLogin: boolean = true; // start with login form
+  showRegister: boolean = false; // register form hidden
   errorMessage: string | null = null;
   
   // LoginForm fields
@@ -22,12 +23,25 @@ export class LoginComponent {
   regUsername: string = '';
   regEmail: string = '';
   regPassword: string = '';
+
+  // Forgot Password field
+  showForgotPassword = false;
+  forgotEmail = '';
   constructor(private loginService: LoginService, private router: Router) {}
 
   toggleForm(event: Event) 
-{
+  {
     event.preventDefault(); // prevent page reload on link click
     this.showLogin = !this.showLogin;
+    this.showRegister = !this.showRegister;
+    this.showForgotPassword = false;
+  }
+  toggleForgotPassword(event: Event) 
+  {
+    event.preventDefault(); // prevent page reload on link click
+    this.showForgotPassword = true;
+    this.showLogin = false;
+    this.showRegister = false;
   }
   onSignIn() 
   {
@@ -65,10 +79,36 @@ export class LoginComponent {
         alert("✅ Registration successful! You can now log in.");
         // Optionally, switch to login form after successful registration
         this.showLogin = true;
+        this.showRegister = false;
       },
       error: (error) => {
         console.error('Registration error:', error);
-        alert("❌ Registration failed. Please try again.");
+        if(error.status === 400)
+        {
+          alert("User Already Exists with the corresponding Email address.");
+        }
+        else
+        {
+          alert("❌ Registration failed. Please try again.");
+        }
+      }
+    });
+  }
+
+  onForgotPassword()
+  {
+    console.log('Sending reset link to', this.forgotEmail);
+    this.loginService.forgotPassword(this.forgotEmail).subscribe({
+      next: (response) => {
+        alert("✅ If the email exists, a password reset link has been sent.");
+        this.showForgotPassword = false;
+        this.showLogin = true;
+        this.showRegister = false;
+        this.forgotEmail = '';
+      },
+      error: (error) => {
+        console.error('Forgot Password error:', error);
+        alert("❌ Failed to send password reset link. Please try again.");
       }
     });
   }
