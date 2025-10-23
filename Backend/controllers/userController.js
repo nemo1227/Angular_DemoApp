@@ -115,8 +115,11 @@ export async function forgotPassword (req, res) {
 
     res.status(200).json({ message: 'Reset email sent successfully!' });
   }
-  catch (err){
-    console.error(error);
-    res.status(500).json({ message: 'Error sending reset email.' });
+  catch (err) {
+    console.error("Forgot Password Error:", err);
+    return res.status(500).json({
+      message: "Internal Server Error",
+      error: err.message ?? err
+    });
   }
 }
