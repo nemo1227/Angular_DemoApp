@@ -1,10 +1,12 @@
 import { hash, compare } from "bcryptjs";
 import jwt from "jsonwebtoken";
-import nodemailer from "nodemailer";
+//import nodemailer from "nodemailer";
 import { Op } from "sequelize";
 import User from "../models/User.js";
 import { redisClient } from "../db/redis.js";
+import { Resend } from 'resend';
 const { sign } = jwt;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function register(req, res) {
   try 
@@ -87,17 +89,17 @@ export async function forgotPassword (req, res) {
     // Generate a fake reset token (you can improve this later)
     const resetToken = Math.random().toString(36).substring(2, 15);
     // Create email transporter
-    const transporter = nodemailer.createTransport({
-          host: 'smtp.zoho.in',       // for Zoho India users
-          port: 465,                  // SSL port
-          secure: true,               // use SSL
-          auth: {
-            user: process.env.EMAIL_USER, // your Zoho email address
-            pass: process.env.EMAIL_PASS  // your Zoho App Password #5SREQrZQNS3C
-          } 
-    });
+    // const transporter = nodemailer.createTransport({
+    //       host: 'smtp.zoho.in',       // for Zoho India users
+    //       port: 465,                  // SSL port
+    //       secure: true,               // use SSL
+    //       auth: {
+    //         user: process.env.EMAIL_USER, // your Zoho email address
+    //         pass: process.env.EMAIL_PASS  // your Zoho App Password #5SREQrZQNS3C
+    //       } 
+    // });
      // Email message
-    const mailOptions = {
+    const mailOptions = await resend.emails.send({
       from: `"Admin" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: 'Password Reset Request',
@@ -108,11 +110,11 @@ export async function forgotPassword (req, res) {
         <h2>${resetToken}</h2>
         <p>If you didn’t request this, ignore this email.</p>
       `
-    };
+    });
     // Send email
-    await transporter.sendMail(mailOptions);
+    //await transporter.sendMail(mailOptions);
     console.log(`Reset token for ${email}: ${resetToken}`);
-
+    console.log('Email sent:', mailOptions);
     res.status(200).json({ message: 'Reset email sent successfully!' });
   }
   catch (err) {
