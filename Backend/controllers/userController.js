@@ -6,6 +6,7 @@ import User from "../models/User.js";
 import { redisClient } from "../db/redis.js";
 import { Resend } from 'resend';
 import {randomBytes} from 'crypto';
+
 const { sign } = jwt;
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -139,6 +140,9 @@ export async function forgotPassword (req, res) {
       subject: 'Password Reset Request',
       html: htmlContent
     });
+
+    console.log(`Reset token for ${email}: ${resetToken}`);
+    console.log('Email sent:', mailOptions);
     res.status(200).json({ message: 'Reset email sent successfully!' });
   }
   catch (err) {
