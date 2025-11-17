@@ -1,8 +1,8 @@
 {
-  "name": "demo-app",
+  "name": "forgebit-app",
   "version": "0.0.0",
   "scripts": {
-    "build": "npx ng build SmartTaskCollaborationPlatform --configuration production",
+    "build": "npx ng build Forgebit --configuration production",
     "start": "ng serve",
     "watch": "npx ng build --watch --configuration development",
     "test": "npx ng test"

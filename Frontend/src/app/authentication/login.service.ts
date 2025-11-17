@@ -20,4 +20,8 @@ export class LoginService {
   forgotPassword(email: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/forgot-password`, { email });
   }
+  resetPassword(token: string, otp: string, newPassword: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/reset-password`, { token, otp, newPassword });
+  }
+
 }

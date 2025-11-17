@@ -65,3 +65,7 @@ CI (Continuous Integration):
 
 CD (Continuous Deployment/Delivery):
  CD (continuous delivery) means deployment happens automatically whenever a new build is successful.
+
+
+
+ RESEND_API_KEY=re_3iYCYREm_Mqgdz4iTbAiRs8epykhmQ8RZ

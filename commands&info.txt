@@ -8,6 +8,9 @@ npm install sequelize
 npm install sequelize-cli   # Command-line interface tool for Sequelize
 npm install jsonwebtoken
 npm install redis
+npm install nodemailer   #if using personal Gmail to send mails to the client
+npm install resend
+
 
 # Sequelize-CLI
   1.sequelize-cli is a command-line interface tool for Sequelize
