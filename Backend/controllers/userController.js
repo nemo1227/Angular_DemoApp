@@ -140,9 +140,6 @@ export async function forgotPassword (req, res) {
       subject: 'Password Reset Request',
       html: htmlContent
     });
-
-    console.log(`Reset token for ${email}: ${resetToken}`);
-    console.log('Email sent:', mailOptions);
     res.status(200).json({ message: 'Reset email sent successfully!' });
   }
   catch (err) {
