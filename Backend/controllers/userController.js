@@ -96,7 +96,7 @@ export async function forgotPassword (req, res) {
     user.resetTokenExpiry = new Date(Date.now() + 10 * 60 * 1000); // 10 min expiry
     await user.save(); 
 
-    const resetLink = `http://localhost:8080/reset-password?token=${resetToken}`;
+    const resetLink = `https://forgebit.in/reset-password?token=${resetToken}`;
     const htmlContent = `
       <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f8; padding: 30px;">
         <div style="max-width: 600px; background-color: #ffffff; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
